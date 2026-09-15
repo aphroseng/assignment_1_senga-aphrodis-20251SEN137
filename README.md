@@ -1,9 +1,9 @@
 <div align="center">
   <h1 style="color: #1a5276; font-family: Arial, sans-serif;">Sunrise Supermarket — PL/SQL Assignment Report</h1>
   <p style="font-size: 15px; color: #5d6d7e;">
-    <b>Student Name:</b> Senga Aphrodis &nbsp;|&nbsp; 
-    <b>Student ID:</b> 20251SEN136 &nbsp;|&nbsp; 
-    <b>DBMS:</b> Oracle Database 10g Express Edition
+    <b>Student Name:</b> Senga Aphrodis; 
+    <b>Student ID:</b> 20251SEN137 &nbsp;|&nbsp; 
+    <b>DBMS:</b> Oracle Database 10g Express Edition/REPORT USING HTML AND CSS
   </p>
   <hr style="border: 1px solid #d6dbdf; width: 80%;">
 </div>

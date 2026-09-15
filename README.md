@@ -1,7 +1,7 @@
 <div align="center" style="background: linear-gradient(135deg, #1f618d, #117a65); padding: 25px; border-radius: 10px; color: white; margin-bottom: 20px;">
-  <h1 style="color: #ffffff; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding-bottom: 8px;">Sunrise Supermarket — PL/SQL Assignment Report</h1>
+  <h1 style="color: orange; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding-bottom: 8px;">Sunrise Supermarket — PL/SQL Assignment Report</h1>
   <p style="font-size: 15px; color: #e8f8f5; margin: 5px 0 0 0;">
-    <b>Student Name:</b> Senga Aphrodis &nbsp;|&nbsp; 
+    <b style="color:red;">Student Name:</b> Senga Aphrodis &nbsp;|&nbsp; 
     <b>Student ID:</b> 20251SEN136 &nbsp;|&nbsp; 
     <b>Engine:</b> Oracle Database 10g Express Edition
   </p>

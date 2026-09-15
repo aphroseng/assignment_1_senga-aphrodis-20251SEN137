@@ -1,6 +1,4 @@
--- ========================================================
 -- PL/SQL ASSIGNMENT 1: SUNRISE SUPERMARKET
--- ========================================================
 
 -- 1. CREATE TABLES
 CREATE TABLE customers (
@@ -32,14 +30,14 @@ CREATE TABLE order_items (
 
 -- 2. INSERT SAMPLE DATA
 -- Customers (5)
-INSERT INTO customers VALUES (1, 'Jessica Uwimpuhwe', 'jessica@gmail.com', 'Kigali');
-INSERT INTO customers VALUES (2, 'Eric Maniraguha', 'eric@gmail.com', 'Huye');
-INSERT INTO customers VALUES (3, 'Afanyu Emmanuel', 'afanyu@gmail.com', 'Musanze');
-INSERT INTO customers VALUES (4, 'Keza Diane', 'diane@gmail.com', 'Kigali');
-INSERT INTO customers VALUES (5, 'Mugisha Jean', 'jean@gmail.com', 'Rubavu');
+INSERT INTO customers VALUES (1, 'Jessica Uwimpuhwe', 'jessica@gmail.com', 'nyabihu');
+INSERT INTO customers VALUES (2, 'RWIBUTSO', 'eric@gmail.com', 'Huye');
+INSERT INTO customers VALUES (3, 'SENGA APHRO', 'senga@gmail.com', 'Musanze');
+INSERT INTO customers VALUES (4, 'Keza KESSY', 'kaza@gmail.com', 'Kigali');
+INSERT INTO customers VALUES (5, 'Muhoza chris', 'muhoza@gmail.com', 'Rubavu');
 
 -- Products (8)
-INSERT INTO products VALUES (101, 'Milk 1L', 'Dairy', 1200);
+INSERT INTO products VALUES (101, 'apple 2kg', 'market', 5000);
 INSERT INTO products VALUES (102, 'Cheese 500g', 'Dairy', 4500);
 INSERT INTO products VALUES (103, 'Yogurt', 'Dairy', 1000);
 INSERT INTO products VALUES (104, 'White Bread', 'Bakery', 1500);
@@ -49,51 +47,49 @@ INSERT INTO products VALUES (107, 'Mineral Water', 'Beverages', 500);
 INSERT INTO products VALUES (108, 'Coffee Powder', 'Beverages', 3500);
 
 -- Orders (15)
-INSERT INTO orders VALUES (1001, 1, TO_DATE('2026-09-01', 'YYYY-MM-DD'));
-INSERT INTO orders VALUES (1002, 1, TO_DATE('2026-09-03', 'YYYY-MM-DD'));
-INSERT INTO orders VALUES (1003, 1, TO_DATE('2026-09-10', 'YYYY-MM-DD'));
-INSERT INTO orders VALUES (1004, 2, TO_DATE('2026-09-02', 'YYYY-MM-DD'));
-INSERT INTO orders VALUES (1005, 2, TO_DATE('2026-09-08', 'YYYY-MM-DD'));
-INSERT INTO orders VALUES (1006, 3, TO_DATE('2026-09-04', 'YYYY-MM-DD'));
-INSERT INTO orders VALUES (1007, 3, TO_DATE('2026-09-09', 'YYYY-MM-DD'));
-INSERT INTO orders VALUES (1008, 3, TO_DATE('2026-09-12', 'YYYY-MM-DD'));
-INSERT INTO orders VALUES (1009, 4, TO_DATE('2026-09-05', 'YYYY-MM-DD'));
-INSERT INTO orders VALUES (1010, 4, TO_DATE('2026-09-11', 'YYYY-MM-DD'));
-INSERT INTO orders VALUES (1011, 1, TO_DATE('2026-09-13', 'YYYY-MM-DD'));
-INSERT INTO orders VALUES (1012, 2, TO_DATE('2026-09-14', 'YYYY-MM-DD'));
-INSERT INTO orders VALUES (1013, 3, TO_DATE('2026-09-14', 'YYYY-MM-DD'));
-INSERT INTO orders VALUES (1014, 4, TO_DATE('2026-09-15', 'YYYY-MM-DD'));
-INSERT INTO orders VALUES (1015, 1, TO_DATE('2026-09-15', 'YYYY-MM-DD'));
+INSERT INTO orders VALUES (001, 1, TO_DATE('2026-09-01', 'YYYY-MM-DD'));
+INSERT INTO orders VALUES (002, 1, TO_DATE('2026-09-02', 'YYYY-MM-DD'));
+INSERT INTO orders VALUES (003, 1, TO_DATE('2026-09-3', 'YYYY-MM-DD'));
+INSERT INTO orders VALUES (004, 2, TO_DATE('2026-09-04', 'YYYY-MM-DD'));
+INSERT INTO orders VALUES (005, 2, TO_DATE('2026-09-05', 'YYYY-MM-DD'));
+INSERT INTO orders VALUES (007, 3, TO_DATE('2026-09-06', 'YYYY-MM-DD'));
+INSERT INTO orders VALUES (008, 3, TO_DATE('2026-09-07', 'YYYY-MM-DD'));
+INSERT INTO orders VALUES (009, 4, TO_DATE('2026-09-08', 'YYYY-MM-DD'));
+INSERT INTO orders VALUES (010, 4, TO_DATE('2026-09-09', 'YYYY-MM-DD'));
+INSERT INTO orders VALUES (011, 1, TO_DATE('2026-09-10', 'YYYY-MM-DD'));
+INSERT INTO orders VALUES (012, 2, TO_DATE('2026-09-11', 'YYYY-MM-DD'));
+INSERT INTO orders VALUES (013, 3, TO_DATE('2026-09-12', 'YYYY-MM-DD'));
+INSERT INTO orders VALUES (014, 4, TO_DATE('2026-09-13', 'YYYY-MM-DD'));
+INSERT INTO orders VALUES (015, 1, TO_DATE('2026-09-14', 'YYYY-MM-DD'));
+INSERT INTO orders VALUES (016, 3, TO_DATE('2026-09-15', 'YYYY-MM-DD'));
 
 -- Order Items (25)
-INSERT INTO order_items VALUES (1, 1001, 101, 2);
-INSERT INTO order_items VALUES (2, 1001, 104, 1);
-INSERT INTO order_items VALUES (3, 1002, 105, 1);
-INSERT INTO order_items VALUES (4, 1002, 106, 2);
-INSERT INTO order_items VALUES (5, 1003, 102, 1);
-INSERT INTO order_items VALUES (6, 1003, 108, 2);
-INSERT INTO order_items VALUES (7, 1004, 103, 5);
-INSERT INTO order_items VALUES (8, 1004, 107, 10);
-INSERT INTO order_items VALUES (9, 1005, 105, 2);
-INSERT INTO order_items VALUES (10, 1006, 101, 4);
-INSERT INTO order_items VALUES (11, 1006, 102, 2);
-INSERT INTO order_items VALUES (12, 1007, 106, 3);
-INSERT INTO order_items VALUES (13, 1007, 104, 2);
-INSERT INTO order_items VALUES (14, 1008, 108, 1);
-INSERT INTO order_items VALUES (15, 1009, 107, 20);
-INSERT INTO order_items VALUES (16, 1009, 101, 1);
-INSERT INTO order_items VALUES (17, 1010, 102, 3);
-INSERT INTO order_items VALUES (18, 1011, 105, 1);
-INSERT INTO order_items VALUES (19, 1012, 106, 2);
-INSERT INTO order_items VALUES (20, 1012, 103, 4);
-INSERT INTO order_items VALUES (21, 1013, 104, 3);
-INSERT INTO order_items VALUES (22, 1014, 108, 2);
-INSERT INTO order_items VALUES (23, 1014, 102, 1);
-INSERT INTO order_items VALUES (24, 1015, 101, 2);
-INSERT INTO order_items VALUES (25, 1015, 107, 5);
-
+INSERT INTO order_items VALUES (1, 001, 101, 2);
+INSERT INTO order_items VALUES (2, 001, 104, 1);
+INSERT INTO order_items VALUES (3, 002, 105, 1);
+INSERT INTO order_items VALUES (4, 002, 106, 2);
+INSERT INTO order_items VALUES (5, 003, 102, 1);
+INSERT INTO order_items VALUES (6, 003, 108, 2);
+INSERT INTO order_items VALUES (7, 004, 103, 5);
+INSERT INTO order_items VALUES (8, 004, 107, 10);
+INSERT INTO order_items VALUES (9, 005, 105, 2);
+INSERT INTO order_items VALUES (10, 006, 101, 4);
+INSERT INTO order_items VALUES (11, 006, 102, 2);
+INSERT INTO order_items VALUES (12, 007, 106, 3);
+INSERT INTO order_items VALUES (13, 007, 104, 2);
+INSERT INTO order_items VALUES (14, 008, 108, 1);
+INSERT INTO order_items VALUES (15, 009, 107, 20);
+INSERT INTO order_items VALUES (16, 009, 101, 1);
+INSERT INTO order_items VALUES (17, 010, 102, 3);
+INSERT INTO order_items VALUES (18, 011, 105, 1);
+INSERT INTO order_items VALUES (19, 012, 106, 2);
+INSERT INTO order_items VALUES (20, 012, 103, 4);
+INSERT INTO order_items VALUES (21, 013, 104, 3);
+INSERT INTO order_items VALUES (22, 014, 108, 2);
+INSERT INTO order_items VALUES (23, 014, 102, 1);
+INSERT INTO order_items VALUES (24, 015, 101, 2);
+INSERT INTO order_items VALUES (25, 015, 107, 5);
 COMMIT;
-
 -- 3. ASSIGNMENT QUERIES (1 - 8)
 
 -- Q1: INNER JOIN

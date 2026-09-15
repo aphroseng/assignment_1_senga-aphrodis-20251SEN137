@@ -1,9 +1,9 @@
 <div align="center">
   <h1 style="color: #1a5276; font-family: Arial, sans-serif;">Sunrise Supermarket — PL/SQL Assignment Report</h1>
   <p style="font-size: 15px; color: #5d6d7e;">
-    <b>Student Name:</b> Senga Aphrodis; 
-    <b>Student ID:</b> 20251SEN137; 
-    <b>DBMS:</b> Oracle Database 10g Express Edition/repoted via html and css
+    <b>Student Name:</b> Senga Aphrodis &nbsp;|&nbsp; 
+    <b>Student ID:</b> 20251SEN137 &nbsp;|&nbsp; 
+    <b>DBMS:</b> Oracle Database 10g Express Edition/reported via HTML AND CSS.
   </p>
   <hr style="border: 1px solid #d6dbdf; width: 80%;">
 </div>
@@ -86,7 +86,7 @@
 </table>
 
 <h2 style="color: #21618c; font-family: Arial, sans-serif;">4. Business Insights & Management Recommendations</h2>
-<ul style="font-size: 14px; color: #2c3e50; line-height: 2;">
+<ul style="font-size: 14px; color: #2c3e50; line-height: 1.6;">
   <li><b>High-Value Customers:</b> Premium products like Bakery items (Chocolate Cakes) and Beverages drive higher sales totals. The store should bundle these items for special promotions.</li>
   <li><b>Customer Retention:</b> Based on the <code>LAG</code> function results, repeat customers usually order again within 2 to 6 days. Sending reminder SMS/emails around day 4 can improve repeat purchases.</li>
   <li><b>Converting Inactive Accounts:</b> The <code>LEFT JOIN</code> query highlighted registered customers with 0 orders. Offering a welcome discount voucher can help convert them into active buyers.</li>

@@ -111,7 +111,7 @@ LEFT JOIN orders o ON c.customer_id = o.customer_id
 ORDER BY c.customer_id, o.order_id;
 
 --HERE IS CTE QUERY
--- Q4: CTE for Above Average Spend
+-- Q1: CTE for Above Average Spend
 WITH CustomerSpend AS (
     SELECT c.customer_id, c.customer_name, NVL(SUM(oi.quantity * p.price), 0) AS total_spent
     FROM customers c
@@ -124,8 +124,9 @@ SELECT customer_id, customer_name, total_spent
 FROM CustomerSpend
 WHERE total_spent > (SELECT AVG(total_spent) FROM CustomerSpend)
 ORDER BY total_spent DESC;
---FROM 5 TO 8 IS WINDOW FUNCTION
--- Q5: RANK Customers by Spend
+--FROM 1 TO 4 IS WINDOW FUNCTION
+
+-- Q1: RANK Customers by Spend
 WITH CustomerTotal AS (
     SELECT c.customer_id, c.customer_name, NVL(SUM(oi.quantity * p.price), 0) AS total_spent
     FROM customers c
@@ -138,14 +139,14 @@ SELECT customer_id, customer_name, total_spent,
        DENSE_RANK() OVER (ORDER BY total_spent DESC) AS spend_rank
 FROM CustomerTotal;
 
--- Q6: ROW_NUMBER for Orders
+-- Q2: ROW_NUMBER for Orders
 SELECT c.customer_name, o.order_id, o.order_date,
        ROW_NUMBER() OVER (PARTITION BY o.customer_id ORDER BY o.order_date, o.order_id) AS order_number
 FROM orders o
 JOIN customers c ON o.customer_id = c.customer_id
 ORDER BY o.customer_id, order_number;
 
--- Q7: Running Total Revenue
+-- Q3: Running Total Revenue
 WITH DailyOrderRevenue AS (
     SELECT o.order_date, SUM(oi.quantity * p.price) AS daily_revenue
     FROM orders o
@@ -158,7 +159,7 @@ SELECT order_date, daily_revenue,
 FROM DailyOrderRevenue
 ORDER BY order_date;
 
--- Q8: LAG Days Between Orders
+-- Q5: LAG Days Between Orders
 WITH OrderDifferences AS (
     SELECT c.customer_name, o.order_id, o.order_date,
            LAG(o.order_date) OVER (PARTITION BY o.customer_id ORDER BY o.order_date) AS previous_order_date,

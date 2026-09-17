@@ -90,8 +90,8 @@ INSERT INTO order_items VALUES (23, 014, 102, 1);
 INSERT INTO order_items VALUES (24, 015, 101, 2);
 INSERT INTO order_items VALUES (25, 015, 107, 5);
 COMMIT;
--- 3. ASSIGNMENT QUERIES (1 - 8)
-
+-- 3. ASSIGNMENT QUERIES (ALL)
+--FROM ONE TO THREE IS JOIN QUERIES
 -- Q1: INNER JOIN
 SELECT o.order_id, c.customer_name, c.city, o.order_date
 FROM orders o
@@ -110,6 +110,7 @@ FROM customers c
 LEFT JOIN orders o ON c.customer_id = o.customer_id
 ORDER BY c.customer_id, o.order_id;
 
+--HERE IS CTE QUERY
 -- Q4: CTE for Above Average Spend
 WITH CustomerSpend AS (
     SELECT c.customer_id, c.customer_name, NVL(SUM(oi.quantity * p.price), 0) AS total_spent
@@ -123,7 +124,7 @@ SELECT customer_id, customer_name, total_spent
 FROM CustomerSpend
 WHERE total_spent > (SELECT AVG(total_spent) FROM CustomerSpend)
 ORDER BY total_spent DESC;
-
+--FROM 5 TO 8 IS WINDOW FUNCTION
 -- Q5: RANK Customers by Spend
 WITH CustomerTotal AS (
     SELECT c.customer_id, c.customer_name, NVL(SUM(oi.quantity * p.price), 0) AS total_spent

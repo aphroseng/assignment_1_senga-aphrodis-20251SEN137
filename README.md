@@ -1,103 +1,134 @@
-<div align="center">
-  <h1 style="color: #1a5276; font-family: Arial, sans-serif;">Sunrise Supermarket — PL/SQL Assignment Report</h1>
-  <p style="font-size: 15px; color: #5d6d7e;">
+<div align="center" style="background: linear-gradient(135deg, #1f618d, #117a65); padding: 25px; border-radius: 10px; color: white; margin-bottom: 20px;">
+  <h1 style="color: #ffffff; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding-bottom: 8px;">Sunrise Supermarket — PL/SQL Assignment Report</h1>
+  <p style="font-size: 15px; color: #e8f8f5; margin: 5px 0 0 0;">
     <b>Student Name:</b> Senga Aphrodis &nbsp;|&nbsp; 
-    <b>Student ID:</b> 20251SEN137 &nbsp;|&nbsp; 
-    <b>DBMS:</b> Oracle Database 10g Express Edition/reported via HTML AND CSS.
+    <b>Student ID:</b> 20251SEN136 &nbsp;|&nbsp; 
+    <b>Engine:</b> Oracle Database 10g Express Edition
   </p>
-  <hr style="border: 1px solid #d6dbdf; width: 80%;">
 </div>
 
-<h2 style="color: #21618c; font-family: Arial, sans-serif;">1. Business Scenario</h2>
-<p style="font-size: 14px; line-height: 1.6; color: #2c3e50;">
-  Sunrise Supermarket is a local retail store operating in Rwanda that manages sales across different product lines such as Dairy, Bakery, and Beverages. The management required a clear database design to track customer profiles, order history, and product details. This project focuses on analyzing sales performance, identifying customer trends, and computing running revenue over time using JOINs, CTEs, and Window Functions.
+<div align="center" style="margin-bottom: 25px;">
+  <span style="background-color: #27ae60; color: white; padding: 6px 14px; border-radius: 20px; font-weight: bold; font-size: 13px;">✔ Status: Completed</span> &nbsp;
+  <span style="background-color: #2980b9; color: white; padding: 6px 14px; border-radius: 20px; font-weight: bold; font-size: 13px;">📊 Queries: 8 Executed</span> &nbsp;
+  <span style="background-color: #8e44ad; color: white; padding: 6px 14px; border-radius: 20px; font-weight: bold; font-size: 13px;">🏬 Subject: Database Analytics</span>
+</div>
+
+<h2 style="color: #1a5276; font-family: Arial, sans-serif; border-bottom: 3px solid #2980b9; padding-bottom: 5px;">1. Business Scenario</h2>
+<p style="font-size: 14px; line-height: 1.6; color: #2c3e50; background-color: #f4f6f7; padding: 12px; border-left: 5px solid #2980b9; border-radius: 4px;">
+  <b>Sunrise Supermarket</b> is a retail grocery business operating in Rwanda. It manages multiple product lines including Dairy, Bakery, and Beverages. Management required a structured database system to monitor customer purchasing habits, track sales volume per category, and evaluate revenue trends over time using <b>JOINs</b>, <b>CTEs</b>, and <b>Window Functions</b>.
 </p>
 
-<h2 style="color: #21618c; font-family: Arial, sans-serif;">2. Database Schema</h2>
-<p style="font-size: 14px; color: #2c3e50;">The database is structured into four primary tables:</p>
-<ul style="font-size: 14px; color: #2c3e50; line-height: 1.6;">
-  <li><b>customers:</b> Stores customer details (<code>customer_id</code>, <code>customer_name</code>, <code>email</code>, <code>city</code>).</li>
-  <li><b>products:</b> Catalog of items (<code>product_id</code>, <code>product_name</code>, <code>category</code>, <code>price</code>).</li>
-  <li><b>orders:</b> General transaction headers (<code>order_id</code>, <code>customer_id</code>, <code>order_date</code>).</li>
-  <li><b>order_items:</b> Specific product details per order (<code>order_item_id</code>, <code>order_id</code>, <code>product_id</code>, <code>quantity</code>).</li>
+<h2 style="color: #1a5276; font-family: Arial, sans-serif; border-bottom: 3px solid #27ae60; padding-bottom: 5px;">2. Database Schema Architecture</h2>
+<ul style="font-size: 14px; color: #2c3e50; line-height: 1.8;">
+  <li><b style="color: #c0392b;">customers:</b> Stores buyer profile records (<code>customer_id</code>, <code>customer_name</code>, <code>email</code>, <code>city</code>).</li>
+  <li><b style="color: #d35400;">products:</b> Inventory catalog items (<code>product_id</code>, <code>product_name</code>, <code>category</code>, <code>price</code>).</li>
+  <li><b style="color: #27ae60;">orders:</b> Order headers tracking date and customer relation (<code>order_id</code>, <code>customer_id</code>, <code>order_date</code>).</li>
+  <li><b style="color: #2980b9;">order_items:</b> Specific line items per invoice (<code>order_item_id</code>, <code>order_id</code>, <code>product_id</code>, <code>quantity</code>).</li>
 </ul>
 
-<h2 style="color: #21618c; font-family: Arial, sans-serif;">3. Queries Summary & Explanations</h2>
+<h2 style="color: #1a5276; font-family: Arial, sans-serif; border-bottom: 3px solid #8e44ad; padding-bottom: 5px;">3. Analytical Queries Overview</h2>
 
-<table width="100%" cellpading="8" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px;">
+<table width="100%" cellpadding="8" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px;">
   <thead>
-    <tr style="background-color: #2980b9; color: white; text-align: left;">
-      <th style="padding: 10px; border: 1px solid #ddd;">No.</th>
-      <th style="padding: 10px; border: 1px solid #ddd;">Query Focus</th>
-      <th style="padding: 10px; border: 1px solid #ddd;">SQL Technique Used</th>
-      <th style="padding: 10px; border: 1px solid #ddd;">Purpose / What it Answers</th>
+    <tr style="background-color: #1f618d; color: white; text-align: left;">
+      <th style="padding: 10px; border: 1px solid #1a5276;">No.</th>
+      <th style="padding: 10px; border: 1px solid #1a5276;">Query Focus</th>
+      <th style="padding: 10px; border: 1px solid #1a5276;">SQL Technique</th>
+      <th style="padding: 10px; border: 1px solid #1a5276;">Business Purpose</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">1</td>
-      <td style="padding: 10px; border: 1px solid #ddd;">Order Demographics</td>
-      <td style="padding: 10px; border: 1px solid #ddd;"><code>INNER JOIN</code></td>
-      <td style="padding: 10px; border: 1px solid #ddd;">Lists every order together with customer name, location city, and date.</td>
+    <tr style="background-color: #ffffff;">
+      <td style="padding: 10px; border: 1px solid #e5e7e9; text-align: center; font-weight: bold; color: #1f618d;">1</td>
+      <td style="padding: 10px; border: 1px solid #e5e7e9; font-weight: bold;">Order Demographics</td>
+      <td style="padding: 10px; border: 1px solid #e5e7e9;"><span style="background-color: #ebf5fb; color: #1b4f72; padding: 3px 7px; border-radius: 3px; font-weight: bold;">INNER JOIN</span></td>
+      <td style="padding: 10px; border: 1px solid #e5e7e9;">Retrieves transactions with customer names and cities.</td>
     </tr>
     <tr style="background-color: #f8f9f9;">
-      <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">2</td>
-      <td style="padding: 10px; border: 1px solid #ddd;">Line Item Details</td>
-      <td style="padding: 10px; border: 1px solid #ddd;"><code>JOIN</code></td>
-      <td style="padding: 10px; border: 1px solid #ddd;">Shows ordered quantities along with product names, categories, and unit price.</td>
+      <td style="padding: 10px; border: 1px solid #e5e7e9; text-align: center; font-weight: bold; color: #1f618d;">2</td>
+      <td style="padding: 10px; border: 1px solid #e5e7e9; font-weight: bold;">Line Items Analysis</td>
+      <td style="padding: 10px; border: 1px solid #e5e7e9;"><span style="background-color: #ebf5fb; color: #1b4f72; padding: 3px 7px; border-radius: 3px; font-weight: bold;">JOIN</span></td>
+      <td style="padding: 10px; border: 1px solid #e5e7e9;">Lists purchased items, product categories, and unit pricing.</td>
     </tr>
-    <tr>
-      <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">3</td>
-      <td style="padding: 10px; border: 1px solid #ddd;">Customer Audit</td>
-      <td style="padding: 10px; border: 1px solid #ddd;"><code>LEFT JOIN</code></td>
-      <td style="padding: 10px; border: 1px solid #ddd;">Displays all registered customers including those who haven't placed an order yet.</td>
-    </tr>
-    <tr style="background-color: #f8f9f9;">
-      <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">4</td>
-      <td style="padding: 10px; border: 1px solid #ddd;">Above-Average Spenders</td>
-      <td style="padding: 10px; border: 1px solid #ddd;"><code>CTE (WITH Clause)</code></td>
-      <td style="padding: 10px; border: 1px solid #ddd;">Calculates total spend per customer and filters those above the store average.</td>
-    </tr>
-    <tr>
-      <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">5</td>
-      <td style="padding: 10px; border: 1px solid #ddd;">Spend Ranking</td>
-      <td style="padding: 10px; border: 1px solid #ddd;"><code>DENSE_RANK()</code></td>
-      <td style="padding: 10px; border: 1px solid #ddd;">Ranks top spending customers in descending order from highest to lowest.</td>
+    <tr style="background-color: #ffffff;">
+      <td style="padding: 10px; border: 1px solid #e5e7e9; text-align: center; font-weight: bold; color: #1f618d;">3</td>
+      <td style="padding: 10px; border: 1px solid #e5e7e9; font-weight: bold;">Inactive Account Audit</td>
+      <td style="padding: 10px; border: 1px solid #e5e7e9;"><span style="background-color: #fef9e7; color: #7d6608; padding: 3px 7px; border-radius: 3px; font-weight: bold;">LEFT JOIN</span></td>
+      <td style="padding: 10px; border: 1px solid #e5e7e9;">Displays all customers, highlighting non-ordering accounts.</td>
     </tr>
     <tr style="background-color: #f8f9f9;">
-      <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">6</td>
-      <td style="padding: 10px; border: 1px solid #ddd;">Order Sequence</td>
-      <td style="padding: 10px; border: 1px solid #ddd;"><code>ROW_NUMBER()</code></td>
-      <td style="padding: 10px; border: 1px solid #ddd;">Numbers each customer's orders chronologically (Order #1, Order #2, etc.).</td>
+      <td style="padding: 10px; border: 1px solid #e5e7e9; text-align: center; font-weight: bold; color: #1f618d;">4</td>
+      <td style="padding: 10px; border: 1px solid #e5e7e9; font-weight: bold;">Top Tier Buyers</td>
+      <td style="padding: 10px; border: 1px solid #e5e7e9;"><span style="background-color: #eafaf1; color: #145a32; padding: 3px 7px; border-radius: 3px; font-weight: bold;">CTE (WITH)</span></td>
+      <td style="padding: 10px; border: 1px solid #e5e7e9;">Filters customers whose total spending exceeds average store spend.</td>
     </tr>
-    <tr>
-      <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">7</td>
-      <td style="padding: 10px; border: 1px solid #ddd;">Running Revenue</td>
-      <td style="padding: 10px; border: 1px solid #ddd;"><code>SUM() OVER()</code></td>
-      <td style="padding: 10px; border: 1px solid #ddd;">Computes cumulative daily sales revenue over time.</td>
+    <tr style="background-color: #ffffff;">
+      <td style="padding: 10px; border: 1px solid #e5e7e9; text-align: center; font-weight: bold; color: #1f618d;">5</td>
+      <td style="padding: 10px; border: 1px solid #e5e7e9; font-weight: bold;">Customer Ranking</td>
+      <td style="padding: 10px; border: 1px solid #e5e7e9;"><span style="background-color: #f4ecf7; color: #512e5f; padding: 3px 7px; border-radius: 3px; font-weight: bold;">DENSE_RANK()</span></td>
+      <td style="padding: 10px; border: 1px solid #e5e7e9;">Ranks buyers based on overall total spend.</td>
     </tr>
     <tr style="background-color: #f8f9f9;">
-      <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">8</td>
-      <td style="padding: 10px; border: 1px solid #ddd;">Purchase Frequency</td>
-      <td style="padding: 10px; border: 1px solid #ddd;"><code>LAG()</code></td>
-      <td style="padding: 10px; border: 1px solid #ddd;">Calculates the exact number of days passed between consecutive customer orders.</td>
+      <td style="padding: 10px; border: 1px solid #e5e7e9; text-align: center; font-weight: bold; color: #1f618d;">6</td>
+      <td style="padding: 10px; border: 1px solid #e5e7e9; font-weight: bold;">Order Sequence</td>
+      <td style="padding: 10px; border: 1px solid #e5e7e9;"><span style="background-color: #f4ecf7; color: #512e5f; padding: 3px 7px; border-radius: 3px; font-weight: bold;">ROW_NUMBER()</span></td>
+      <td style="padding: 10px; border: 1px solid #e5e7e9;">Assigns order numbers per customer chronologically.</td>
+    </tr>
+    <tr style="background-color: #ffffff;">
+      <td style="padding: 10px; border: 1px solid #e5e7e9; text-align: center; font-weight: bold; color: #1f618d;">7</td>
+      <td style="padding: 10px; border: 1px solid #e5e7e9; font-weight: bold;">Running Total Revenue</td>
+      <td style="padding: 10px; border: 1px solid #e5e7e9;"><span style="background-color: #f4ecf7; color: #512e5f; padding: 3px 7px; border-radius: 3px; font-weight: bold;">SUM() OVER()</span></td>
+      <td style="padding: 10px; border: 1px solid #e5e7e9;">Calculates cumulative sales daily over time.</td>
+    </tr>
+    <tr style="background-color: #f8f9f9;">
+      <td style="padding: 10px; border: 1px solid #e5e7e9; text-align: center; font-weight: bold; color: #1f618d;">8</td>
+      <td style="padding: 10px; border: 1px solid #e5e7e9; font-weight: bold;">Order Interval Days</td>
+      <td style="padding: 10px; border: 1px solid #e5e7e9;"><span style="background-color: #f4ecf7; color: #512e5f; padding: 3px 7px; border-radius: 3px; font-weight: bold;">LAG()</span></td>
+      <td style="padding: 10px; border: 1px solid #e5e7e9;">Computes days elapsed between successive orders.</td>
     </tr>
   </tbody>
 </table>
 
-<h2 style="color: #21618c; font-family: Arial, sans-serif;">4. Business Insights & Management Recommendations</h2>
-<ul style="font-size: 14px; color: #2c3e50; line-height: 1.6;">
-  <li><b>High-Value Customers:</b> Premium products like Bakery items (Chocolate Cakes) and Beverages drive higher sales totals. The store should bundle these items for special promotions.</li>
-  <li><b>Customer Retention:</b> Based on the <code>LAG</code> function results, repeat customers usually order again within 2 to 6 days. Sending reminder SMS/emails around day 4 can improve repeat purchases.</li>
-  <li><b>Converting Inactive Accounts:</b> The <code>LEFT JOIN</code> query highlighted registered customers with 0 orders. Offering a welcome discount voucher can help convert them into active buyers.</li>
-</ul>
+<h2 style="color: #1a5276; font-family: Arial, sans-serif; border-bottom: 3px solid #e67e22; padding-bottom: 5px;">4. How to Run the Project</h2>
 
-<h2 style="color: #21618c; font-family: Arial, sans-serif;">5. Challenges & Resolutions</h2>
-<p style="font-size: 14px; line-height: 1.6; color: #2c3e50;">
-  While working on Query 8, calculating date differences using the <code>LAG()</code> function initially produced <code>NULL</code> values for first-time orders. This was solved by applying a outer query filter (<code>WHERE previous_order_date IS NOT NULL</code>) so that only customers with multiple purchases are displayed as requested.
-</p>
+<div style="background-color: #fef9e7; border-left: 5px solid #f39c12; padding: 15px; border-radius: 4px; margin-bottom: 20px;">
+  <h3 style="color: #7d6608; margin-top: 0; font-family: Arial, sans-serif; font-size: 16px;">Prerequisites</h3>
+  <p style="font-size: 14px; color: #5d4037; margin: 0 0 10px 0;">Ensure you have any SQL Database Management System supporting CTEs and Window Functions installed (e.g., <b>Oracle Database 10g Express Edition / SQL Developer</b>, PostgreSQL, or MySQL 8.0+).</p>
+</div>
 
-<hr style="border: 1px solid #d6dbdf;">
-<p align="center" style="font-size: 13px; color: #7f8c8d; font-family: Arial, sans-serif;">
-  <i>PL/SQL Assignment 1 — Submitted via GitHub Repository</i>
+<ol style="font-size: 14px; color: #2c3e50; line-height: 1.8; padding-left: 20px;">
+  <li><b>Clone or Download the Repository:</b>
+    <br>Download the repository files or copy the code from <a href="https://github.com/aphroseng/assignment_1_senga-aphrodis-20251SEN136/blob/main/solution.sql" style="color: #2980b9; font-weight: bold;">solution.sql</a>.
+  </li>
+  <li><b>Open SQL Environment:</b>
+    <br>Launch <b>Oracle SQL Developer</b> (or <b>SQL*Plus / Application Express</b>) and log in to your active workspace connection.
+  </li>
+  <li><b>Execute the Script:</b>
+    <br>Paste the contents of <code>solution.sql</code> into the SQL Worksheet editor.
+  </li>
+  <li><b>Run Entire Script:</b>
+    <br>Press <kbd style="background-color: #eaeded; border: 1px solid #bdc3c7; border-radius: 3px; padding: 2px 6px; font-size: 12px;">F5</kbd> (or click the <b>Run Script</b> button) to run the full script sequentially:
+    <ul>
+      <li>Schema creation (Tables: <code>customers</code>, <code>products</code>, <code>orders</code>, <code>order_items</code>).</li>
+      <li>Sample Data Insertion.</li>
+      <li>Queries 1 through 8 execution and output display.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 style="color: #1a5276; font-family: Arial, sans-serif; border-bottom: 3px solid #f39c12; padding-bottom: 5px;">5. Key Strategic Insights</h2>
+<div style="display: flex; gap: 10px; flex-wrap: wrap;">
+  <div style="background-color: #eafaf1; border: 1px solid #27ae60; border-radius: 6px; padding: 12px; margin-bottom: 10px;">
+    <h3 style="color: #1e8449; margin-top: 0; font-size: 15px;">🛍️ Product Performance</h3>
+    <p style="margin: 0; font-size: 13.5px; color: #1e8449;">Bakery products generate higher average transaction value per basket compared to general items.</p>
+  </div>
+  <div style="background-color: #ebf5fb; border: 1px solid #2980b9; border-radius: 6px; padding: 12px; margin-bottom: 10px;">
+    <h3 style="color: #21618c; margin-top: 0; font-size: 15px;">🔄 Repeat Order Retention</h3>
+    <p style="margin: 0; font-size: 13.5px; color: #21618c;">The <code>LAG()</code> analysis indicates repeat transactions usually occur within <b>2 to 6 days</b> of prior purchases.</p>
+  </div>
+</div>
+
+<hr style="border: none; border-top: 1px solid #d6dbdf; margin-top: 30px;">
+<p align="center" style="font-size: 12px; color: #7f8c8d; font-family: Arial, sans-serif;">
+  <i>PL/SQL Assignment 1 — Prepared for Academic Evaluation</i>
 </p>

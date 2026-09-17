@@ -3,7 +3,7 @@
   <p style="font-size: 15px; color: #5d6d7e;">
     <b>Student Name:</b> Senga Aphrodis &nbsp;|&nbsp; 
     <b>Student ID:</b> 20251SEN137 &nbsp;|&nbsp; 
-    <b>DBMS:</b> Oracle Database 10g Express Edition/reported via html and css
+    <b>DBMS:</b> Oracle Database 10g Express Edition and reported via HTML AND CSS
   </p>
   <hr style="border: 1px solid #d6dbdf; width: 80%;">
 </div>
@@ -24,13 +24,15 @@
 
 <h2 style="color: #21618c; font-family: Arial, sans-serif;">3. Queries Summary & Explanations</h2>
 
-<table width="100%" cellpadding="8" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px;">
+<!-- Section 3.1: JOIN Queries -->
+<h3 style="color: #2e86c1; font-family: Arial, sans-serif;">3.1. JOIN Queries</h3>
+<table width="100%" cellpadding="8" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px; margin-bottom: 20px;">
   <thead>
     <tr style="background-color: #2980b9; color: white; text-align: left;">
-      <th style="padding: 10px; border: 1px solid #ddd;">No.</th>
-      <th style="padding: 10px; border: 1px solid #ddd;">Query Focus</th>
-      <th style="padding: 10px; border: 1px solid #ddd;">SQL Technique Used</th>
-      <th style="padding: 10px; border: 1px solid #ddd;">Purpose / What it Answers</th>
+      <th style="padding: 10px; border: 1px solid #ddd; width: 5%;">No.</th>
+      <th style="padding: 10px; border: 1px solid #ddd; width: 25%;">Query Focus</th>
+      <th style="padding: 10px; border: 1px solid #ddd; width: 20%;">SQL Technique Used</th>
+      <th style="padding: 10px; border: 1px solid #ddd; width: 50%;">Purpose / What it Answers</th>
     </tr>
   </thead>
   <tbody>
@@ -38,49 +40,79 @@
       <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">1</td>
       <td style="padding: 10px; border: 1px solid #ddd;">Order Demographics</td>
       <td style="padding: 10px; border: 1px solid #ddd;"><code>INNER JOIN</code></td>
-      <td style="padding: 10px; border: 1px solid #ddd;">Lists every order together with customer name, location city, and date.</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">List every order with the customer's name, city, and order date (<code>orders</code> + <code>customers</code>).</td>
     </tr>
     <tr style="background-color: #f8f9f9;">
       <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">2</td>
       <td style="padding: 10px; border: 1px solid #ddd;">Line Item Details</td>
-      <td style="padding: 10px; border: 1px solid #ddd;"><code>JOIN</code></td>
-      <td style="padding: 10px; border: 1px solid #ddd;">Shows ordered quantities along with product names, categories, and unit price.</td>
+      <td style="padding: 10px; border: 1px solid #ddd;"><code>INNER JOIN</code></td>
+      <td style="padding: 10px; border: 1px solid #ddd;">List every order item with product name, category, price, and quantity (<code>order_items</code> + <code>products</code>).</td>
     </tr>
     <tr>
       <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">3</td>
       <td style="padding: 10px; border: 1px solid #ddd;">Customer Audit</td>
       <td style="padding: 10px; border: 1px solid #ddd;"><code>LEFT JOIN</code></td>
-      <td style="padding: 10px; border: 1px solid #ddd;">Displays all registered customers including those who haven't placed an order yet.</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">List all customers and their orders where they exist, including customers with no orders (<code>customers</code> + <code>orders</code>).</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Section 3.2: CTE Query -->
+<h3 style="color: #2e86c1; font-family: Arial, sans-serif;">3.2. CTE Query</h3>
+<table width="100%" cellpadding="8" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px; margin-bottom: 20px;">
+  <thead>
+    <tr style="background-color: #2980b9; color: white; text-align: left;">
+      <th style="padding: 10px; border: 1px solid #ddd; width: 5%;">No.</th>
+      <th style="padding: 10px; border: 1px solid #ddd; width: 25%;">Query Focus</th>
+      <th style="padding: 10px; border: 1px solid #ddd; width: 20%;">SQL Technique Used</th>
+      <th style="padding: 10px; border: 1px solid #ddd; width: 50%;">Purpose / What it Answers</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">1</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">Above-Average Spenders</td>
+      <td style="padding: 10px; border: 1px solid #ddd;"><code>CTE (WITH Clause)</code></td>
+      <td style="padding: 10px; border: 1px solid #ddd;">Calculate each customer's total spend (quantity x price) and return customers above average spend. Use a CTE to compute customer totals first.</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Section 3.3: Window-Function Queries -->
+<h3 style="color: #2e86c1; font-family: Arial, sans-serif;">3.3. Window-Function Queries</h3>
+<table width="100%" cellpadding="8" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px; margin-bottom: 20px;">
+  <thead>
+    <tr style="background-color: #2980b9; color: white; text-align: left;">
+      <th style="padding: 10px; border: 1px solid #ddd; width: 5%;">No.</th>
+      <th style="padding: 10px; border: 1px solid #ddd; width: 25%;">Query Focus</th>
+      <th style="padding: 10px; border: 1px solid #ddd; width: 20%;">SQL Technique Used</th>
+      <th style="padding: 10px; border: 1px solid #ddd; width: 50%;">Purpose / What it Answers</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">1</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">Spend Ranking</td>
+      <td style="padding: 10px; border: 1px solid #ddd;"><code>DENSE_RANK()</code></td>
+      <td style="padding: 10px; border: 1px solid #ddd;">Rank customers by total amount spent, highest first.</td>
+    </tr>
+    <tr style="background-color: #f8f9f9;">
+      <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">2</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">Order Sequence</td>
+      <td style="padding: 10px; border: 1px solid #ddd;"><code>ROW_NUMBER()</code></td>
+      <td style="padding: 10px; border: 1px solid #ddd;">Number each customer's orders in the order placed.</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">3</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">Running Revenue</td>
+      <td style="padding: 10px; border: 1px solid #ddd;"><code>SUM() OVER()</code></td>
+      <td style="padding: 10px; border: 1px solid #ddd;">Show a running total of revenue over time, ordered by order date.</td>
     </tr>
     <tr style="background-color: #f8f9f9;">
       <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">4</td>
-      <td style="padding: 10px; border: 1px solid #ddd;">Above-Average Spenders</td>
-      <td style="padding: 10px; border: 1px solid #ddd;"><code>CTE (WITH Clause)</code></td>
-      <td style="padding: 10px; border: 1px solid #ddd;">Calculates total spend per customer and filters those above the store average.</td>
-    </tr>
-    <tr>
-      <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">5</td>
-      <td style="padding: 10px; border: 1px solid #ddd;">Spend Ranking</td>
-      <td style="padding: 10px; border: 1px solid #ddd;"><code>DENSE_RANK()</code></td>
-      <td style="padding: 10px; border: 1px solid #ddd;">Ranks top spending customers in descending order from highest to lowest.</td>
-    </tr>
-    <tr style="background-color: #f8f9f9;">
-      <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">6</td>
-      <td style="padding: 10px; border: 1px solid #ddd;">Order Sequence</td>
-      <td style="padding: 10px; border: 1px solid #ddd;"><code>ROW_NUMBER()</code></td>
-      <td style="padding: 10px; border: 1px solid #ddd;">Numbers each customer's orders chronologically (Order #1, Order #2, etc.).</td>
-    </tr>
-    <tr>
-      <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">7</td>
-      <td style="padding: 10px; border: 1px solid #ddd;">Running Revenue</td>
-      <td style="padding: 10px; border: 1px solid #ddd;"><code>SUM() OVER()</code></td>
-      <td style="padding: 10px; border: 1px solid #ddd;">Computes cumulative daily sales revenue over time.</td>
-    </tr>
-    <tr style="background-color: #f8f9f9;">
-      <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">8</td>
       <td style="padding: 10px; border: 1px solid #ddd;">Purchase Frequency</td>
       <td style="padding: 10px; border: 1px solid #ddd;"><code>LAG()</code></td>
-      <td style="padding: 10px; border: 1px solid #ddd;">Calculates the exact number of days passed between consecutive customer orders.</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">For each customer with more than one order, show days between the current and previous order.</td>
     </tr>
   </tbody>
 </table>
@@ -101,7 +133,7 @@
 
 <h2 style="color: #21618c; font-family: Arial, sans-serif;">6. Challenges & Resolutions</h2>
 <p style="font-size: 14px; line-height: 1.6; color: #2c3e50;">
-  While working on Query 8, calculating date differences using the <code>LAG()</code> function initially produced <code>NULL</code> values for first-time orders. This was solved by applying a outer query filter (<code>WHERE previous_order_date IS NOT NULL</code>) so that only customers with multiple purchases are displayed as requested.
+  While working on Query 8, calculating date differences using the <code>LAG()</code> function initially produced <code>NULL</code> values for first-time orders. This was solved by applying an outer query filter (<code>WHERE previous_order_date IS NOT NULL</code>) so that only customers with multiple purchases are displayed as requested.
 </p>
 
 <hr style="border: 1px solid #d6dbdf;">
